@@ -56,7 +56,7 @@ public class Limpet extends PathfinderMob {
     private static final EntityDataAccessor<Integer> SCARED_TICKS = SynchedEntityData.defineId(Limpet.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> TYPE = SynchedEntityData.defineId(Limpet.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> CRACKED_STAGE = SynchedEntityData.defineId(Limpet.class, EntityDataSerializers.INT);
-    private static final UniformInt RETREAT_DURATION = TimeUtil.rangeOfSeconds(5, 20);
+    private static final UniformInt RETREAT_DURATION = TimeUtil.rangeOfSeconds(8, 22);
     private static final EntityDimensions SCARED_DIMENSIONS = EntityDimensions.scalable(0.75F, 0.75F);
 
     public Limpet(EntityType<? extends PathfinderMob> entityType, Level world) {
@@ -147,7 +147,7 @@ public class Limpet extends PathfinderMob {
     }
 
     public static AttributeSupplier.Builder createAttributes() {
-        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 10.0).add(Attributes.KNOCKBACK_RESISTANCE, 1.0).add(Attributes.MOVEMENT_SPEED, 0.25);
+        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 10.0).add(Attributes.KNOCKBACK_RESISTANCE, 1.0).add(Attributes.MOVEMENT_SPEED, 0.3);
     }
 
     @Override
@@ -279,7 +279,7 @@ public class Limpet extends PathfinderMob {
             if (type.getId() > 1) spawnBreakingParticles();
 
             ItemStack stack = player.getMainHandItem();
-            if (this.getCrackedStage() < 3) {
+            if (this.getCrackedStage() < 4) {
                 this.getBrain().setMemoryWithExpiry(MemoryModuleType.AVOID_TARGET, player, RETREAT_DURATION.sample(this.level().random));
                 this.setCrackedStage(this.getCrackedStage() + 1);
                 this.playSound(type.getAdditionalBreakSound(), 1, (float) this.getCrackedStage() * 0.3f + 0.5f);
