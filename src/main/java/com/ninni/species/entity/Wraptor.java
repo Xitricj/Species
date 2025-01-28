@@ -75,7 +75,7 @@ public class Wraptor extends Animal implements Enemy, Shearable {
 
     public Wraptor(EntityType<? extends Animal> entityType, Level world) {
         super(entityType, world);
-        this.xpReward = 3;
+        this.xpReward = 5;
     }
 
     @Override
@@ -85,9 +85,9 @@ public class Wraptor extends Animal implements Enemy, Shearable {
 
     public static AttributeSupplier.Builder createAttributes() {
         return createMobAttributes()
-            .add(Attributes.MOVEMENT_SPEED, 0.2)
-            .add(Attributes.MAX_HEALTH, 18.0D)
-            .add(Attributes.ATTACK_DAMAGE, 5.0D);
+            .add(Attributes.MOVEMENT_SPEED, 0.25)
+            .add(Attributes.MAX_HEALTH, 40.0D)
+            .add(Attributes.ATTACK_DAMAGE, 6.0D);
     }
 
     @Override
