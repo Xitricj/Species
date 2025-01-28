@@ -88,7 +88,7 @@ public class Mammutilation extends PathfinderMob {
     }
 
     public static AttributeSupplier.Builder createAttributes() {
-        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 20.0).add(Attributes.MOVEMENT_SPEED, 0.15).add(Attributes.KNOCKBACK_RESISTANCE, 0.6).add(Attributes.ATTACK_DAMAGE, 0.0);
+        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 40.0).add(Attributes.MOVEMENT_SPEED, 0.15).add(Attributes.KNOCKBACK_RESISTANCE, 0.6).add(Attributes.ATTACK_DAMAGE, 0.0);
     }
 
     public boolean removeWhenFarAway(double d) {
@@ -171,7 +171,7 @@ public class Mammutilation extends PathfinderMob {
     protected void defineSynchedData() {
         super.defineSynchedData();
         this.entityData.define(COUGH_COOLDOWN, 30 * 20 + random.nextInt(60 * 2 * 20));
-        this.entityData.define(ICHOR_COUNT, 5);
+        this.entityData.define(ICHOR_COUNT, 2);
         this.entityData.define(ICHOR_COOLDOWN, 0);
     }
 
