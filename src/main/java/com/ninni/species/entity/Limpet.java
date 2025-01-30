@@ -147,7 +147,7 @@ public class Limpet extends PathfinderMob {
     }
 
     public static AttributeSupplier.Builder createAttributes() {
-        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 10.0).add(Attributes.KNOCKBACK_RESISTANCE, 1.0).add(Attributes.MOVEMENT_SPEED, 0.3);
+        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 10.0).add(Attributes.KNOCKBACK_RESISTANCE, 1.0).add(Attributes.MOVEMENT_SPEED, 0.27);
     }
 
     @Override
@@ -279,7 +279,7 @@ public class Limpet extends PathfinderMob {
             if (type.getId() > 1) spawnBreakingParticles();
 
             ItemStack stack = player.getMainHandItem();
-            if (this.getCrackedStage() < 4) {
+            if (this.getCrackedStage() < 3.5) {
                 this.getBrain().setMemoryWithExpiry(MemoryModuleType.AVOID_TARGET, player, RETREAT_DURATION.sample(this.level().random));
                 this.setCrackedStage(this.getCrackedStage() + 1);
                 this.playSound(type.getAdditionalBreakSound(), 1, (float) this.getCrackedStage() * 0.3f + 0.5f);
